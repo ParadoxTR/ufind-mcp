@@ -1,0 +1,29 @@
+[project]
+name = "ufind-mcp"
+version = "0.1.0"
+description = "MCP server for u:find, the University of Vienna course catalogue (courses, programmes, departments, staff, exams)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "mcp[cli]>=2.0.0",
+    "httpx>=0.27.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=5.2.0",
+    "defusedxml>=0.7.1",
+]
+
+[project.scripts]
+ufind-mcp = "ufind_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["ufind_mcp"]
